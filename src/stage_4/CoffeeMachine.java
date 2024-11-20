@@ -8,6 +8,50 @@ public class CoffeeMachine {
 
     private int waterAmount;
 
+    public void setMaxCupsAvailable(int maxCupsAvailable) {
+        this.maxCupsAvailable = maxCupsAvailable;
+    }
+
+    public int getMaxCupsAvailable() {
+        return maxCupsAvailable;
+    }
+
+    public int getMoneyCollected() {
+        return moneyCollected;
+    }
+
+    public int getWaterAmount() {
+        return waterAmount;
+    }
+
+    public int getMilkAmount() {
+        return milkAmount;
+    }
+
+    public int getBeansAmount() {
+        return beansAmount;
+    }
+
+    public int getCupsAmount() {
+        return disposableCups;
+    }
+
+    public void setWaterAmount(int waterAmount) {
+        this.waterAmount = waterAmount;
+    }
+
+    public void setMilkAmount(int milkAmount) {
+        this.milkAmount = milkAmount;
+    }
+
+    public void setBeansAmount(int beansAmount) {
+        this.beansAmount = beansAmount;
+    }
+
+    public void setCupsAmount(int disposableCups) {
+        this.disposableCups = disposableCups;
+    }
+
     private int milkAmount;
 
     private int beansAmount;

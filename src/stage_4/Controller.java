@@ -19,19 +19,29 @@ public class Controller {
 
     private Customer customer;
 
+    private Worker worker;
+
     public void makeCoffee() {
 
         setupCoffeeMachine();
 
+        setupWorker();
+
         displayInfo();
 
         performAction();
+
+        displayInfo();
 
         // setupCustomer();
         // System.out.println(coffeeMachine);
 
         // provideFeedback();
 
+    }
+
+    private void setupWorker() {
+        this.worker = new Worker(this.coffeeMachine);
     }
 
     private void performAction() {
@@ -49,8 +59,14 @@ public class Controller {
                     coffeeMachine.makeOneCoffee(Coffee.CAPPUCCINO);
                 }
                 break;
+            case FILL:
+                worker.fillIngredients();
+                break;
+
+
         }
 
+        System.out.println();
     }
 
     private void displayInfo() {
