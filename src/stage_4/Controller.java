@@ -19,11 +19,17 @@ public class Controller {
 	public void makeCoffee() {
 
 		setupCoffeeMachine();
+		displayInfo();
 
 		setupCustomer();
+		System.out.println(coffeeMachine);
 
-		provideFeedback();
+		// provideFeedback();
 
+	}
+
+	private void displayInfo() {
+		System.out.println(this.coffeeMachine);
 	}
 
 	private void setupCoffeeMachine() {

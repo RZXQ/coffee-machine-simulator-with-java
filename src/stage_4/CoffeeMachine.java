@@ -10,6 +10,8 @@ public class CoffeeMachine {
 
 	private int maxCupsAvailable;
 
+	private int moneyAmount;
+
 	private int waterAmount;
 
 	private int milkAmount;
@@ -21,6 +23,14 @@ public class CoffeeMachine {
 		this.milkAmount = milkAmount;
 		this.beansAmount = beansAmount;
 		updateMaxCupsAvailable();
+	}
+
+	@Override
+	public String toString() {
+		return String.format(
+				"The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n" + "%d g of coffee beans\n"
+						+ "%d disposable cups\n" + "$%d of money\n",
+				waterAmount, milkAmount, beansAmount, maxCupsAvailable, moneyAmount);
 	}
 
 	public int getMaxCupAvailable() {
