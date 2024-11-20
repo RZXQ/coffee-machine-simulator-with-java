@@ -2,54 +2,54 @@ package stage_4;
 
 public class CoffeeMachine {
 
-	private static final int MILK_PER_CUP = 50;
+    private int maxCupsAvailable;
 
-	private static final int WATER_PER_CUP = 200;
+    private int moneyCollected;
 
-	private static final int COFFEE_BEANS_PER_CUP = 15;
+    private int waterAmount;
 
-	private int maxCupsAvailable;
+    private int milkAmount;
 
-	private int moneyCollected;
+    private int beansAmount;
 
-	private int waterAmount;
+    private int disposableCups;
 
-	private int milkAmount;
+    public CoffeeMachine(int waterAmount, int milkAmount, int beansAmount, int disposableCups, int moneyCollected) {
+        this.waterAmount = waterAmount;
+        this.milkAmount = milkAmount;
+        this.beansAmount = beansAmount;
+        this.disposableCups = disposableCups;
+        this.moneyCollected = moneyCollected;
+    }
 
-	private int beansAmount;
+    public void makeOneCoffee(Coffee coffee) {
+        this.waterAmount -= coffee.getWater();
+        this.milkAmount -= coffee.getMilk();
+        this.beansAmount -= coffee.getBeans();
+        this.moneyCollected += coffee.getCost();
+        this.disposableCups-=1;
 
-	private int disposableCups;
+    }
 
-	public CoffeeMachine(int waterAmount, int milkAmount, int beansAmount, int disposableCups, int moneyCollected) {
-		this.waterAmount = waterAmount;
-		this.milkAmount = milkAmount;
-		this.beansAmount = beansAmount;
-		this.disposableCups = disposableCups;
-		this.moneyCollected = moneyCollected;
-	}
+    @Override
+    public String toString() {
+        return String.format("The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n" + "%d g of coffee beans\n" + "%d disposable cups\n" + "$%d of money\n", waterAmount, milkAmount, beansAmount, disposableCups, moneyCollected);
+    }
 
-	@Override
-	public String toString() {
-		return String.format(
-				"The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n" + "%d g of coffee beans\n"
-						+ "%d disposable cups\n" + "$%d of money\n",
-				waterAmount, milkAmount, beansAmount, disposableCups, moneyCollected);
-	}
+    public int getMaxCupAvailable() {
+        return this.maxCupsAvailable;
+    }
 
-	public int getMaxCupAvailable() {
-		return this.maxCupsAvailable;
-	}
+    // public void updateMaxCupsAvailable() {
+    // 	int maxCupsFromWater = calculateCupsFromIngredient(this.waterAmount, WATER_PER_CUP);
+    // 	int maxCupsFromMilk = calculateCupsFromIngredient(this.milkAmount, MILK_PER_CUP);
+    // 	int maxCupsFromBeans = calculateCupsFromIngredient(this.beansAmount, COFFEE_BEANS_PER_CUP);
+    //
+    // 	this.maxCupsAvailable = Math.min(maxCupsFromWater, Math.min(maxCupsFromMilk, maxCupsFromBeans));
+    // }
 
-	public void updateMaxCupsAvailable() {
-		int maxCupsFromWater = calculateCupsFromIngredient(this.waterAmount, WATER_PER_CUP);
-		int maxCupsFromMilk = calculateCupsFromIngredient(this.milkAmount, MILK_PER_CUP);
-		int maxCupsFromBeans = calculateCupsFromIngredient(this.beansAmount, COFFEE_BEANS_PER_CUP);
-
-		this.maxCupsAvailable = Math.min(maxCupsFromWater, Math.min(maxCupsFromMilk, maxCupsFromBeans));
-	}
-
-	private int calculateCupsFromIngredient(int ingredientAmount, int ingredientPerCup) {
-		return ingredientAmount / ingredientPerCup;
-	}
+    // private int calculateCupsFromIngredient(int ingredientAmount, int ingredientPerCup) {
+    // 	return ingredientAmount / ingredientPerCup;
+    // }
 
 }
