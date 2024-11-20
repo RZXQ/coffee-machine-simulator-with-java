@@ -16,6 +16,10 @@ public class CoffeeMachine {
         return maxCupsAvailable;
     }
 
+    public void setMoneyCollected(int moneyCollected) {
+        this.moneyCollected = moneyCollected;
+    }
+
     public int getMoneyCollected() {
         return moneyCollected;
     }

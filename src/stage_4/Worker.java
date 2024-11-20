@@ -7,8 +7,9 @@ public class Worker {
     public static final String ADD_MILK_PROMPT = "Write how many ml of milk you want to add: ";
     public static final String ADD_BEANS_PROMPT = "Write how many grams of coffee beans you want to add:";
     public static final String ADD_CUPS_PROMPT = "Write how many disposable cups you want to add: ";
+    public static final String TAKE_PROMPT = "I gave you $%d\n";
     private static final Scanner SCANNER = new Scanner(System.in);
-    private CoffeeMachine machine;
+    private final CoffeeMachine machine;
 
     public Worker(CoffeeMachine machine) {
         this.machine = machine;
@@ -24,5 +25,10 @@ public class Worker {
     private int fill(String prompt) {
         System.out.println(prompt);
         return Integer.parseInt(SCANNER.nextLine());
+    }
+
+    public void takeAllMoney() {
+        System.out.printf(TAKE_PROMPT, this.machine.getMoneyCollected());
+        this.machine.setMoneyCollected(0);
     }
 }

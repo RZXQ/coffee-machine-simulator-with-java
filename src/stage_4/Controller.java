@@ -62,8 +62,9 @@ public class Controller {
             case FILL:
                 worker.fillIngredients();
                 break;
-
-
+            case TAKE:
+                worker.takeAllMoney();
+                break;
         }
 
         System.out.println();
