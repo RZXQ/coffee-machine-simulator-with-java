@@ -2,13 +2,13 @@ package stage_5;
 
 import java.util.Scanner;
 
-public class Owner {
+public class Seller {
 
 	private static final Scanner SCANNER = new Scanner(System.in);
 
 	private static final String ACTION_PROMPT = "Write action (buy, fill, take, remaining, exit):";
 
-	private static final String COFFEE_TYPE_PROMPT = "What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:";
+	private static final String COFFEE_TYPE_PROMPT = "What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:";
 
 	private static final String ENOUGH_SUPPLY_PROMPT = "I have enough resources, making you a coffee!\n";
 
@@ -44,10 +44,15 @@ public class Owner {
 		System.out.println(ACTION_PROMPT);
 		Action userAction = Action.valueOf(SCANNER.nextLine().toUpperCase());
 		System.out.println();
+
 		switch (userAction) {
 			case BUY:
 				System.out.println(COFFEE_TYPE_PROMPT);
-				int choice = Integer.parseInt(SCANNER.nextLine());
+				String choiceStr = SCANNER.nextLine();
+				if ("back".equalsIgnoreCase(choiceStr)) {
+					break;
+				}
+				int choice = Integer.parseInt(choiceStr);
 				if (choice == 1) {
 					if (checkCoffeeMachineSupplies(Coffee.ESPRESSO)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);

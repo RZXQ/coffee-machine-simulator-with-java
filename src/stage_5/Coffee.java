@@ -2,7 +2,7 @@ package stage_5;
 
 public enum Coffee {
 
-	ESPRESSO(250, 0, 16, 4), LATTE(350, 75, 20, 7), CAPPUCCINO(200, 100, 12, 6);
+	ESPRESSO(250, 0, 16, 4), LATTE(350, 75, 20, 7), CAPPUCCINO(200, 100, 12, 6),BACK(0,0,0,0);
 
 	private final int water;
 
