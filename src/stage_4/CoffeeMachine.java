@@ -33,7 +33,7 @@ public class CoffeeMachine {
 		return String.format(
 				"The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n" + "%d g of coffee beans\n"
 						+ "%d disposable cups\n" + "$%d of money\n",
-				waterAmount, milkAmount, beansAmount, maxCupsAvailable, moneyCollected);
+				waterAmount, milkAmount, beansAmount, disposableCups, moneyCollected);
 	}
 
 	public int getMaxCupAvailable() {

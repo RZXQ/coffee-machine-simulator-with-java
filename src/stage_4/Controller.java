@@ -35,18 +35,19 @@ public class Controller {
 	private void setupCoffeeMachine() {
 		// this.coffeeMachine = getCoffeeMachine();
 		// this.coffeeMachine.updateMaxCupsAvailable();
-		this.coffeeMachine = new CoffeeMachine(400,540,120);
+		this.coffeeMachine = new CoffeeMachine(400, 540, 120, 9, 550);
 	}
 
 	private void setupCustomer() {
-		this.customer =new Customer();
+		this.customer = new Customer();
 		this.customer.setCupsOfCoffeeNeeded();
 	}
 
-	public CoffeeMachine getCoffeeMachine() {
-		return new CoffeeMachine(readAmount(INITIAL_WATER_PROMPT), readAmount(INITIAL_MILK_PROMPT),
-				readAmount(INITIAL_COFFEE_BEANS_PROMPT));
-	}
+	// public CoffeeMachine getCoffeeMachine() {
+	// return new CoffeeMachine(readAmount(INITIAL_WATER_PROMPT),
+	// readAmount(INITIAL_MILK_PROMPT),
+	// readAmount(INITIAL_COFFEE_BEANS_PROMPT));
+	// }
 
 	public int readAmount(String prompt) {
 		System.out.println(prompt);
