@@ -10,7 +10,7 @@ public class CoffeeMachine {
 
 	private int maxCupsAvailable;
 
-	private int moneyAmount;
+	private int moneyCollected;
 
 	private int waterAmount;
 
@@ -18,11 +18,14 @@ public class CoffeeMachine {
 
 	private int beansAmount;
 
-	public CoffeeMachine(int waterAmount, int milkAmount, int beansAmount) {
+	private int disposableCups;
+
+	public CoffeeMachine(int waterAmount, int milkAmount, int beansAmount, int disposableCups, int moneyCollected) {
 		this.waterAmount = waterAmount;
 		this.milkAmount = milkAmount;
 		this.beansAmount = beansAmount;
-		updateMaxCupsAvailable();
+		this.disposableCups = disposableCups;
+		this.moneyCollected = moneyCollected;
 	}
 
 	@Override
@@ -30,7 +33,7 @@ public class CoffeeMachine {
 		return String.format(
 				"The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n" + "%d g of coffee beans\n"
 						+ "%d disposable cups\n" + "$%d of money\n",
-				waterAmount, milkAmount, beansAmount, maxCupsAvailable, moneyAmount);
+				waterAmount, milkAmount, beansAmount, maxCupsAvailable, moneyCollected);
 	}
 
 	public int getMaxCupAvailable() {

@@ -33,8 +33,9 @@ public class Controller {
 	}
 
 	private void setupCoffeeMachine() {
-		this.coffeeMachine = getCoffeeMachine();
-		this.coffeeMachine.updateMaxCupsAvailable();
+		// this.coffeeMachine = getCoffeeMachine();
+		// this.coffeeMachine.updateMaxCupsAvailable();
+		this.coffeeMachine = new CoffeeMachine(400,540,120);
 	}
 
 	private void setupCustomer() {
