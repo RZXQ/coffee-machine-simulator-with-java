@@ -2,7 +2,7 @@ package stage_5;
 
 import java.util.Scanner;
 
-public class Controller {
+public class Owner {
 
     private static final String INITIAL_WATER_PROMPT = "Write how many ml of water the coffee machine has:";
 
@@ -12,7 +12,7 @@ public class Controller {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    private static final String ACTION_PROMPT = "Write action (buy, fill, take):";
+    private static final String ACTION_PROMPT = "Write action (buy, fill, take, remaining, exit):";
     private static final String COFFEE_TYPE_PROMPT = "What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:";
 
     private CoffeeMachine coffeeMachine;
@@ -20,6 +20,7 @@ public class Controller {
     private Customer customer;
 
     private Worker worker;
+    private boolean isExit;
 
     public void makeCoffee() {
 
@@ -27,12 +28,7 @@ public class Controller {
 
         setupWorker();
 
-        displayInfo();
-
-        performAction();
-
-        displayInfo();
-
+        performActions();
         // setupCustomer();
         // System.out.println(coffeeMachine);
 
@@ -40,11 +36,17 @@ public class Controller {
 
     }
 
+    private void performActions() {
+       while (!isExit)  {
+        performSingleAction();
+       }
+    }
+
     private void setupWorker() {
         this.worker = new Worker(this.coffeeMachine);
     }
 
-    private void performAction() {
+    private void performSingleAction() {
         System.out.println(ACTION_PROMPT);
         Action userAction = Action.valueOf(SCANNER.nextLine().toUpperCase());
         switch (userAction) {
@@ -65,13 +67,19 @@ public class Controller {
             case TAKE:
                 worker.takeAllMoney();
                 break;
+            case REMAINING:
+                displayRemaining();
+                break;
+            case EXIT:
+                this.isExit = true;
+                break;
         }
 
         System.out.println();
     }
 
-    private void displayInfo() {
-        System.out.println(this.coffeeMachine);
+    private void displayRemaining() {
+        System.out.println("\n" + this.coffeeMachine);
     }
 
     private void setupCoffeeMachine() {
@@ -110,7 +118,7 @@ public class Controller {
     }
 
     public enum Action {
-        BUY, FILL, TAKE
+        BUY, FILL, TAKE, REMAINING, EXIT
     }
 
 }
