@@ -2,7 +2,7 @@ package stage_4;
 
 import java.util.Scanner;
 
-public class User {
+public class Customer {
 
 	public static final String PROMPT_CUPS_NEEDED = "Write how many cups of coffee you will need:";
 

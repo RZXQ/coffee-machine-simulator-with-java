@@ -14,13 +14,13 @@ public class Controller {
 
 	private CoffeeMachine coffeeMachine;
 
-	private User user;
+	private Customer customer;
 
 	public void makeCoffee() {
 
 		setupCoffeeMachine();
 
-		setupUser();
+		setupCustomer();
 
 		provideFeedback();
 
@@ -31,9 +31,9 @@ public class Controller {
 		this.coffeeMachine.updateMaxCupsAvailable();
 	}
 
-	private void setupUser() {
-		this.user =new User();
-		this.user.setCupsOfCoffeeNeeded();
+	private void setupCustomer() {
+		this.customer =new Customer();
+		this.customer.setCupsOfCoffeeNeeded();
 	}
 
 	public CoffeeMachine getCoffeeMachine() {
@@ -47,7 +47,7 @@ public class Controller {
 	}
 
 	private void provideFeedback() {
-		int difference = this.coffeeMachine.getMaxCupAvailable() - this.user.getCupsOfCoffeeNeeded();
+		int difference = this.coffeeMachine.getMaxCupAvailable() - this.customer.getCupsOfCoffeeNeeded();
 
 		if (difference > 0) {
 			System.out.printf("Yes, I can make that amount of coffee (and even %d more than that)\n", difference);
