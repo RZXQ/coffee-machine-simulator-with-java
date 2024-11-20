@@ -28,11 +28,15 @@ public class CoffeeMachine {
 	}
 
 	public void updateMaxCupsAvailable() {
-		int cupsOfWater = this.waterAmount / WATER_PER_CUP;
-		int cupsOfMilk = this.milkAmount / MILK_PER_CUP;
-		int cupsOfBeans = this.beansAmount / COFFEE_BEANS_PER_CUP;
+		int maxCupsFromWater = calculateCupsFromIngredient(this.waterAmount, WATER_PER_CUP);
+		int maxCupsFromMilk = calculateCupsFromIngredient(this.milkAmount, MILK_PER_CUP);
+		int maxCupsFromBeans = calculateCupsFromIngredient(this.beansAmount, COFFEE_BEANS_PER_CUP);
 
-		this.maxCupsAvailable = Math.min(cupsOfWater, Math.min(cupsOfMilk, cupsOfBeans));
+		this.maxCupsAvailable = Math.min(maxCupsFromWater, Math.min(maxCupsFromMilk, maxCupsFromBeans));
+	}
+
+	private int calculateCupsFromIngredient(int ingredientAmount, int ingredientPerCup) {
+		return ingredientAmount / ingredientPerCup;
 	}
 
 }

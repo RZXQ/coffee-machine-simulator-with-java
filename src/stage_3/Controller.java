@@ -47,7 +47,7 @@ public class Controller {
 	}
 
 	private void provideFeedback() {
-		int difference = this.coffeeMachine.getMaxCupAvailable() - this.user.getUserRequestQuantities();
+		int difference = this.coffeeMachine.getMaxCupAvailable() - this.user.getCupsOfCoffeeNeeded();
 
 		if (difference > 0) {
 			System.out.printf("Yes, I can make that amount of coffee (and even %d more than that)\n", difference);

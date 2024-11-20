@@ -4,18 +4,20 @@ import java.util.Scanner;
 
 public class User {
 
-	public static final String REQUIRED_CUPS = "Write how many cups of coffee you will need:";
+	public static final String PROMPT_CUPS_NEEDED = "Write how many cups of coffee you will need:";
+
+	private static final Scanner SCANNER = new Scanner(System.in);
 
 	private int cupsOfCoffeeNeeded;
 
 	public void setCupsOfCoffeeNeeded() {
-		System.out.println(REQUIRED_CUPS);
-		this.cupsOfCoffeeNeeded =Integer.parseInt(new Scanner(System.in).nextLine());
+		System.out.println(PROMPT_CUPS_NEEDED);
+		this.cupsOfCoffeeNeeded = Integer.parseInt(SCANNER.nextLine());
 
 	}
 
-
-	public int getUserRequestQuantities() {
+	public int getCupsOfCoffeeNeeded() {
 		return cupsOfCoffeeNeeded;
 	}
+
 }
