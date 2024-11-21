@@ -3,6 +3,7 @@ package stage_6;
 import java.util.Scanner;
 
 public class Staff {
+
 	public static final String COFFEE_TYPE_PROMPT = "What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:";
 
 	public static final String ADD_WATER_PROMPT = "Write how many ml of water you want to add:";
@@ -12,6 +13,7 @@ public class Staff {
 	public static final String ADD_BEANS_PROMPT = "Write how many grams of coffee beans you want to add:";
 
 	public static final String ADD_CUPS_PROMPT = "Write how many disposable cups you want to add: ";
+
 	public static final String ENOUGH_SUPPLY_PROMPT = "I have enough resources, making you a coffee!\n";
 
 	public static final String TAKE_PROMPT = "I gave you $%d\n";

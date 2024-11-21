@@ -8,33 +8,26 @@ public class Main {
 
 	private static final String ACTION_PROMPT = "Write action (buy, fill, take, clean, remaining, exit):";
 
-
 	private boolean isExit;
 
 	public static void main(String[] args) {
 		Main main = new Main();
-		main.makeCoffee();
+		main.run();
 	}
 
-
-
-	public void makeCoffee() {
+	public void run() {
 
 		CoffeeMachine machine = new CoffeeMachine(400, 540, 120, 9, 550);
-
 		Staff staff = new Staff();
+		Customer customer = new Customer();
 
-		performActions(staff, machine);
-
-	}
-
-	private void performActions(Staff staff, CoffeeMachine machine) {
 		while (!isExit) {
-			performSingleAction(staff, machine);
+			performSingleAction(staff, machine, customer);
 		}
+
 	}
 
-	private void performSingleAction(Staff staff, CoffeeMachine machine) {
+	private void performSingleAction(Staff staff, CoffeeMachine machine, Customer customer) {
 		System.out.println(ACTION_PROMPT);
 		Action action;
 
@@ -48,25 +41,24 @@ public class Main {
 
 		System.out.println();
 
-        switch (action) {
-            case BUY -> {
-                if (machine.needClean()) {
-                    break;
-                }
-                Customer customer = new Customer();
-                customer.buyCoffee(staff, machine, SCANNER);
-            }
-            case FILL -> {
-                staff.fillIngredients(machine);
-                System.out.println();
-            }
-            case TAKE -> staff.takeMoney(machine);
-            case CLEAN -> staff.cleanMachine(machine);
-            case REMAINING -> machine.showRemaining();
-            case EXIT -> this.isExit = true;
-            default -> {
-            }
-        }
+		switch (action) {
+			case BUY -> {
+				if (machine.needClean()) {
+					break;
+				}
+				customer.buyCoffee(staff, machine, SCANNER);
+			}
+			case FILL -> {
+				staff.fillIngredients(machine);
+				System.out.println();
+			}
+			case TAKE -> staff.takeMoney(machine);
+			case CLEAN -> staff.cleanMachine(machine);
+			case REMAINING -> machine.showRemaining();
+			case EXIT -> this.isExit = true;
+			default -> {
+			}
+		}
 	}
 
 	public enum Action {
