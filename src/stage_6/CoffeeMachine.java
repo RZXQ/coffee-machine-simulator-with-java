@@ -13,7 +13,9 @@ public class CoffeeMachine {
 	private int milk;
 
 	private int beans;
+
 	private Status status;
+
 	private int disposableCups;
 
 	public CoffeeMachine(int water, int milk, int beans, int disposableCups, int money) {

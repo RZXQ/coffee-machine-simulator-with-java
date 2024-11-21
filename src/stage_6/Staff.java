@@ -16,17 +16,12 @@ public class Staff {
 
 	private static final Scanner SCANNER = new Scanner(System.in);
 
-	private final CoffeeMachine machine;
 
-	public Staff(CoffeeMachine machine) {
-		this.machine = machine;
-	}
-
-	public void fillIngredients() {
-		this.machine.setWater(this.machine.getWater() + fill(ADD_WATER_PROMPT));
-		this.machine.setMilk(this.machine.getMilk() + fill(ADD_MILK_PROMPT));
-		this.machine.setBeans(this.machine.getBeans() + fill(ADD_BEANS_PROMPT));
-		this.machine.setCupsAmount(this.machine.getCupsAmount() + fill(ADD_CUPS_PROMPT));
+	public void fillIngredients(CoffeeMachine machine) {
+		machine.setWater(machine.getWater() + fill(ADD_WATER_PROMPT));
+		machine.setMilk(machine.getMilk() + fill(ADD_MILK_PROMPT));
+		machine.setBeans(machine.getBeans() + fill(ADD_BEANS_PROMPT));
+		machine.setCupsAmount(machine.getCupsAmount() + fill(ADD_CUPS_PROMPT));
 	}
 
 	private int fill(String prompt) {
@@ -35,9 +30,9 @@ public class Staff {
 
 	}
 
-	public void takeMoney() {
-		System.out.printf(TAKE_PROMPT, this.machine.getMoney());
-		this.machine.setMoney(0);
+	public void takeMoney(CoffeeMachine machine) {
+		System.out.printf(TAKE_PROMPT, machine.getMoney());
+		machine.setMoney(0);
 	}
 
 }

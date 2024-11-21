@@ -40,7 +40,7 @@ public class Seller {
 	}
 
 	private void setupWorker() {
-		this.staff = new Staff(this.coffeeMachine);
+		this.staff = new Staff();
 	}
 
 	private void cleanCoffeeMachine() {
@@ -95,11 +95,11 @@ public class Seller {
 				}
 				break;
 			case FILL:
-				staff.fillIngredients();
+				staff.fillIngredients(coffeeMachine);
 				System.out.println();
 				break;
 			case TAKE:
-				staff.takeMoney();
+				staff.takeMoney(coffeeMachine);
 				System.out.println();
 				break;
 			case CLEAN:
