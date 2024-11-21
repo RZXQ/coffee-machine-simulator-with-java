@@ -30,6 +30,9 @@ public class Staff {
 
 	}
 
+	public void cleanMachine(CoffeeMachine machine) {
+		machine.clean();
+	}
 	public void takeMoney(CoffeeMachine machine) {
 		System.out.printf(TAKE_PROMPT, machine.getMoney());
 		machine.setMoney(0);

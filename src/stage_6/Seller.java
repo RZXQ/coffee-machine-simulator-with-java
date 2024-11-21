@@ -103,7 +103,7 @@ public class Seller {
 				System.out.println();
 				break;
 			case CLEAN:
-				cleanCoffeeMachine();
+				staff.cleanMachine(coffeeMachine);
 				break;
 			case REMAINING:
 				displayRemaining();

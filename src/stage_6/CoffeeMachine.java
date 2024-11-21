@@ -2,6 +2,7 @@ package stage_6;
 
 public class CoffeeMachine {
 
+	private static final String CLEAN_COMPLETE_PROMPT="I have been cleaned!";
 	public static int cupsMadeSinceClean = 0;
 
 	private int cups;
@@ -106,4 +107,8 @@ public class CoffeeMachine {
 				disposableCups, money);
 	}
 
+	public void clean() {
+		cupsMadeSinceClean = 0;
+		System.out.println(CLEAN_COMPLETE_PROMPT);
+	}
 }
