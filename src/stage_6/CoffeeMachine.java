@@ -3,6 +3,7 @@ package stage_6;
 public class CoffeeMachine {
 
 	private static final String CLEAN_COMPLETE_PROMPT = "I have been cleaned!";
+	private static final String CLEAN_REQUIRED_PROMPT = "I need cleaning!";
 
 	public static int cupsMadeSinceClean = 0;
 
@@ -83,7 +84,7 @@ public class CoffeeMachine {
 	public boolean needClean() {
 		if (CoffeeMachine.cupsMadeSinceClean >= 10) {
 			this.status = Status.CLEANING;
-			System.out.println("I need cleaning!");
+			System.out.println(CLEAN_REQUIRED_PROMPT);
 			return true;
 		}
 		return false;
