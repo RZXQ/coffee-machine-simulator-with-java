@@ -2,7 +2,7 @@ package stage_6;
 
 import java.util.Scanner;
 
-public class Seller {
+public class Main {
 
 	private static final Scanner SCANNER = new Scanner(System.in);
 
@@ -19,8 +19,8 @@ public class Seller {
 	private boolean isExit;
 
 	public static void main(String[] args) {
-		Seller seller = new Seller();
-		seller.makeCoffee();
+		Main main = new Main();
+		main.makeCoffee();
 	}
 
 	public void makeCoffee() {
@@ -41,12 +41,6 @@ public class Seller {
 
 	private void setupWorker() {
 		this.staff = new Staff();
-	}
-
-	private void cleanCoffeeMachine() {
-		this.coffeeMachine.setStatus(Status.ON);
-		CoffeeMachine.cupsMadeSinceClean = 0;
-		System.out.println("I have been cleaned!");
 	}
 
 	private void performSingleAction() {
