@@ -109,7 +109,7 @@ public class CoffeeMachine {
                 water, milk, beans, disposableCups, money);
 	}
 
-	public void clean() {
+	public void selfCleanProcedure() {
 		cupsMadeSinceClean = 0;
 		System.out.println(CLEAN_COMPLETE_PROMPT);
 	}
