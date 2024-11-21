@@ -36,6 +36,7 @@ public class Staff {
 	public void takeMoney(CoffeeMachine machine) {
 		System.out.printf(TAKE_PROMPT, machine.getMoney());
 		machine.setMoney(0);
+		System.out.println();
 	}
 
 }

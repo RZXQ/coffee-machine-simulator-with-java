@@ -100,6 +100,10 @@ public class CoffeeMachine {
 
 	}
 
+	public void showRemaining() {
+		System.out.println(this);
+	}
+
 	@Override
 	public String toString() {
 		return String.format("The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n"

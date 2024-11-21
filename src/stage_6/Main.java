@@ -12,7 +12,7 @@ public class Main {
 
 	private static final String ENOUGH_SUPPLY_PROMPT = "I have enough resources, making you a coffee!\n";
 
-	private CoffeeMachine coffeeMachine;
+	private CoffeeMachine machine;
 
 	private Staff staff;
 
@@ -59,7 +59,7 @@ public class Main {
 
 		switch (action) {
 			case BUY:
-				if (this.coffeeMachine.needClean()) {
+				if (this.machine.needClean()) {
 					break;
 				}
 
@@ -72,35 +72,34 @@ public class Main {
 				if (choice == 1) {
 					if (checkCoffeeMachineSupplies(CoffeeType.ESPRESSO)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
-						coffeeMachine.makeOneCoffee(CoffeeType.ESPRESSO);
+						machine.makeOneCoffee(CoffeeType.ESPRESSO);
 					}
 				}
 				else if (choice == 2) {
 					if (checkCoffeeMachineSupplies(CoffeeType.LATTE)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
-						coffeeMachine.makeOneCoffee(CoffeeType.LATTE);
+						machine.makeOneCoffee(CoffeeType.LATTE);
 					}
 				}
 				else if (choice == 3) {
 					if (checkCoffeeMachineSupplies(CoffeeType.CAPPUCCINO)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
-						coffeeMachine.makeOneCoffee(CoffeeType.CAPPUCCINO);
+						machine.makeOneCoffee(CoffeeType.CAPPUCCINO);
 					}
 				}
 				break;
 			case FILL:
-				staff.fillIngredients(coffeeMachine);
+				staff.fillIngredients(machine);
 				System.out.println();
 				break;
 			case TAKE:
-				staff.takeMoney(coffeeMachine);
-				System.out.println();
+				staff.takeMoney(machine);
 				break;
 			case CLEAN:
-				staff.cleanMachine(coffeeMachine);
+				staff.cleanMachine(machine);
 				break;
 			case REMAINING:
-				displayRemaining();
+				machine.showRemaining();
 				break;
 			case EXIT:
 				this.isExit = true;
@@ -111,31 +110,27 @@ public class Main {
 	}
 
 	public boolean checkCoffeeMachineSupplies(CoffeeType coffeeType) {
-		if (this.coffeeMachine.getWater() < coffeeType.getWater()) {
+		if (this.machine.getWater() < coffeeType.getWater()) {
 			System.out.println("Sorry, not enough water!\n");
 			return false;
 		}
-		else if (this.coffeeMachine.getMilk() < coffeeType.getMilk()) {
+		else if (this.machine.getMilk() < coffeeType.getMilk()) {
 			System.out.println("Sorry, not enough milk!\n");
 			return false;
 		}
-		else if (this.coffeeMachine.getBeans() < coffeeType.getBeans()) {
+		else if (this.machine.getBeans() < coffeeType.getBeans()) {
 			System.out.println("Sorry, not enough beans!\n");
 			return false;
 		}
-		else if (this.coffeeMachine.getCupsAmount() < 1) {
+		else if (this.machine.getCupsAmount() < 1) {
 			System.out.println("Sorry, not enough beans!\n");
 			return false;
 		}
 		return true;
 	}
 
-	private void displayRemaining() {
-		System.out.println(this.coffeeMachine);
-	}
-
 	private void setupCoffeeMachine() {
-		this.coffeeMachine = new CoffeeMachine(400, 540, 120, 9, 550);
+		this.machine = new CoffeeMachine(400, 540, 120, 9, 550);
 	}
 
 	public enum Action {
