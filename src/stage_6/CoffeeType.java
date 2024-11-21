@@ -2,7 +2,7 @@ package stage_6;
 
 public enum CoffeeType {
 
-	ESPRESSO(250, 0, 16, 4), LATTE(350, 75, 20, 7), CAPPUCCINO(200, 100, 12, 6), BACK(0, 0, 0, 0);
+	ESPRESSO(250, 0, 16, 4), LATTE(350, 75, 20, 7), CAPPUCCINO(200, 100, 12, 6);
 
 	private final int water;
 
