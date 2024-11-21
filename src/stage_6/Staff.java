@@ -35,7 +35,7 @@ public class Staff {
 
 	}
 
-	public void takeAllMoney() {
+	public void takeMoney() {
 		System.out.printf(TAKE_PROMPT, this.machine.getMoney());
 		this.machine.setMoney(0);
 	}

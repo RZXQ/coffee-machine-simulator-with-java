@@ -94,7 +94,7 @@ public class Seller {
 				System.out.println();
 				break;
 			case TAKE:
-				staff.takeAllMoney();
+				staff.takeMoney();
 				System.out.println();
 				break;
 			case CLEAN:
