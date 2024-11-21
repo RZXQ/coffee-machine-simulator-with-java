@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Customer {
 
 	public void buyCoffee(Staff staff, CoffeeMachine machine, Scanner SCANNER) {
-		if (machine.requireClean()) {
+		if (machine.needClean()) {
 			return;
 		}
 

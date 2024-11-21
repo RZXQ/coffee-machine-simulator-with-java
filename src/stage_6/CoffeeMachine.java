@@ -68,7 +68,7 @@ public class CoffeeMachine {
 		this.cups = cups;
 	}
 
-	public boolean requireClean() {
+	public boolean needClean() {
 		if (CoffeeMachine.cupsMadeSinceClean >= CLEAN_THRESHOLD) {
 			System.out.println(CLEAN_REQUIRED_PROMPT);
 			return true;
@@ -77,7 +77,7 @@ public class CoffeeMachine {
 	}
 
 	public void brewCoffee(CoffeeType coffeeType) {
-		if (requireClean()) {
+		if (needClean()) {
 			return;
 		}
 		CoffeeMachine.cupsMadeSinceClean++;
@@ -94,7 +94,7 @@ public class CoffeeMachine {
 				money);
 	}
 
-	public void executeSelfClean() {
+	public void performClean() {
 		cupsMadeSinceClean = 0;
 		System.out.println(CLEAN_COMPLETE_PROMPT);
 	}

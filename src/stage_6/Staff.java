@@ -18,24 +18,22 @@ public class Staff {
 
 	public static final String TAKE_PROMPT = "I gave you $%d\n";
 
-	private static final Scanner SCANNER = new Scanner(System.in);
-
-	public void fillIngredients(CoffeeMachine machine) {
-		machine.setWater(machine.getWater() + fill(ADD_WATER_PROMPT));
-		machine.setMilk(machine.getMilk() + fill(ADD_MILK_PROMPT));
-		machine.setBeans(machine.getBeans() + fill(ADD_BEANS_PROMPT));
-		machine.setCups(machine.getCups() + fill(ADD_CUPS_PROMPT));
+	public void fillIngredients(CoffeeMachine machine, Scanner scanner) {
+		machine.setWater(machine.getWater() + fill(ADD_WATER_PROMPT, scanner));
+		machine.setMilk(machine.getMilk() + fill(ADD_MILK_PROMPT, scanner));
+		machine.setBeans(machine.getBeans() + fill(ADD_BEANS_PROMPT, scanner));
+		machine.setCups(machine.getCups() + fill(ADD_CUPS_PROMPT, scanner));
 		System.out.println();
 	}
 
-	private int fill(String prompt) {
+	private int fill(String prompt, Scanner scanner) {
 		System.out.println(prompt);
-		return Integer.parseInt(SCANNER.nextLine());
+		return Integer.parseInt(scanner.nextLine());
 
 	}
 
 	public void cleanMachine(CoffeeMachine machine) {
-		machine.executeSelfClean();
+		machine.performClean();
 	}
 
 	public void takeMoney(CoffeeMachine machine) {

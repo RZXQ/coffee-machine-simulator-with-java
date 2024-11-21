@@ -23,7 +23,7 @@ public class Main {
 
 		switch (action) {
 			case BUY -> customer.buyCoffee(staff, machine, SCANNER);
-			case FILL -> staff.fillIngredients(machine);
+			case FILL -> staff.fillIngredients(machine,SCANNER);
 			case TAKE -> staff.takeMoney(machine);
 			case CLEAN -> staff.cleanMachine(machine);
 			case REMAINING -> machine.showRemaining();
