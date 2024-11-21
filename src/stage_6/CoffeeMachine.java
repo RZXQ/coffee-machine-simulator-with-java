@@ -87,16 +87,16 @@ public class CoffeeMachine {
 	}
 
 	public void makeCoffee(CoffeeType coffeeType) {
-		if (!needClean()) {
-			CoffeeMachine.cupsMadeSinceClean++;
-			this.water -= coffeeType.getWater();
-			this.milk -= coffeeType.getMilk();
-			this.beans -= coffeeType.getBeans();
-			this.money += coffeeType.getCost();
-			this.disposableCups -= 1;
-		}
-
-	}
+		if (needClean()) {
+            return;
+        }
+        CoffeeMachine.cupsMadeSinceClean++;
+        this.water -= coffeeType.getWater();
+        this.milk -= coffeeType.getMilk();
+        this.beans -= coffeeType.getBeans();
+        this.money += coffeeType.getCost();
+        this.disposableCups -= 1;
+    }
 
 	public void showRemaining() {
 		System.out.printf("The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n"
