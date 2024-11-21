@@ -17,8 +17,6 @@ public class CoffeeMachine {
 
 	private int beans;
 
-	private Status status;
-
 	private int disposableCups;
 
 	public CoffeeMachine(int water, int milk, int beans, int disposableCups, int money) {
@@ -27,10 +25,6 @@ public class CoffeeMachine {
 		this.beans = beans;
 		this.disposableCups = disposableCups;
 		this.money = money;
-	}
-
-	public void setStatus(Status status) {
-		this.status = status;
 	}
 
 	public int getCups() {
@@ -85,7 +79,6 @@ public class CoffeeMachine {
 
 	public boolean needClean() {
 		if (CoffeeMachine.cupsMadeSinceClean >= CLEAN_THRESHOLD) {
-			this.status = Status.CLEANING;
 			System.out.println(CLEAN_REQUIRED_PROMPT);
 			return true;
 		}
@@ -106,9 +99,9 @@ public class CoffeeMachine {
 
 	public void showRemaining() {
 		System.out.printf(
-                "The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n" + "%d g of coffee beans\n"
-                + "%d disposable cups\n" + "$%d of money\n%n",
-                water, milk, beans, disposableCups, money);
+				"The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n" + "%d g of coffee beans\n"
+				+ "%d disposable cups\n" + "$%d of money\n%n",
+				water, milk, beans, disposableCups, money);
 	}
 
 	public void selfCleanProcedure() {
