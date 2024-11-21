@@ -18,6 +18,11 @@ public class Seller {
 
 	private boolean isExit;
 
+	public static void main(String[] args) {
+		Seller seller = new Seller();
+		seller.makeCoffee();
+	}
+
 	public void makeCoffee() {
 
 		setupCoffeeMachine();
