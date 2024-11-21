@@ -3,20 +3,15 @@ package stage_6;
 public class CoffeeMachine {
 
 	private static final String CLEAN_COMPLETE_PROMPT = "I have been cleaned!";
+
 	private static final String CLEAN_REQUIRED_PROMPT = "I need cleaning!";
-
+	private static final int CLEAN_THRESHOLD = 10;
 	public static int cupsMadeSinceClean = 0;
-
 	private int cups;
-
 	private int money;
-
 	private int water;
-
 	private int milk;
-
 	private int beans;
-
 	private int disposableCups;
 
 	public CoffeeMachine(int water, int milk, int beans, int disposableCups, int money) {
@@ -75,8 +70,6 @@ public class CoffeeMachine {
 		this.disposableCups = disposableCups;
 	}
 
-	private static final int CLEAN_THRESHOLD= 10;
-
 	public boolean needClean() {
 		if (CoffeeMachine.cupsMadeSinceClean >= CLEAN_THRESHOLD) {
 			System.out.println(CLEAN_REQUIRED_PROMPT);
@@ -98,10 +91,9 @@ public class CoffeeMachine {
 	}
 
 	public void showRemaining() {
-		System.out.printf(
-				"The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n" + "%d g of coffee beans\n"
-				+ "%d disposable cups\n" + "$%d of money\n%n",
-				water, milk, beans, disposableCups, money);
+		System.out.printf("The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n"
+				+ "%d g of coffee beans\n" + "%d disposable cups\n" + "$%d of money\n%n", water, milk, beans,
+				disposableCups, money);
 	}
 
 	public void selfCleanProcedure() {
