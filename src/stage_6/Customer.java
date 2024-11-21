@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Customer {
 
 	public void buyCoffee(Staff staff, CoffeeMachine machine, Scanner SCANNER) {
-		if (machine.needClean()) {
+		if (machine.requireClean()) {
 			return;
 		}
 
@@ -28,7 +28,7 @@ public class Customer {
 		}
 		if (staff.checkMachineSupplies(machine, type)) {
 			System.out.println(Staff.ENOUGH_SUPPLY_PROMPT);
-			machine.makeCoffee(type);
+			machine.brewCoffee(type);
 		}
 
 	}

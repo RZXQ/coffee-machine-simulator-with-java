@@ -78,7 +78,7 @@ public class CoffeeMachine {
 		this.disposableCups = disposableCups;
 	}
 
-	public boolean needClean() {
+	public boolean requireClean() {
 		if (CoffeeMachine.cupsMadeSinceClean >= CLEAN_THRESHOLD) {
 			System.out.println(CLEAN_REQUIRED_PROMPT);
 			return true;
@@ -86,17 +86,17 @@ public class CoffeeMachine {
 		return false;
 	}
 
-	public void makeCoffee(CoffeeType coffeeType) {
-		if (needClean()) {
-            return;
-        }
-        CoffeeMachine.cupsMadeSinceClean++;
-        this.water -= coffeeType.getWater();
-        this.milk -= coffeeType.getMilk();
-        this.beans -= coffeeType.getBeans();
-        this.money += coffeeType.getCost();
-        this.disposableCups -= 1;
-    }
+	public void brewCoffee(CoffeeType coffeeType) {
+		if (requireClean()) {
+			return;
+		}
+		CoffeeMachine.cupsMadeSinceClean++;
+		this.water -= coffeeType.getWater();
+		this.milk -= coffeeType.getMilk();
+		this.beans -= coffeeType.getBeans();
+		this.money += coffeeType.getCost();
+		this.disposableCups -= 1;
+	}
 
 	public void showRemaining() {
 		System.out.printf("The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n"
@@ -104,7 +104,7 @@ public class CoffeeMachine {
 				disposableCups, money);
 	}
 
-	public void selfCleanProcedure() {
+	public void executeSelfClean() {
 		cupsMadeSinceClean = 0;
 		System.out.println(CLEAN_COMPLETE_PROMPT);
 	}

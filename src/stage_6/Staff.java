@@ -35,7 +35,7 @@ public class Staff {
 	}
 
 	public void cleanMachine(CoffeeMachine machine) {
-		machine.selfCleanProcedure();
+		machine.executeSelfClean();
 	}
 
 	public void takeMoney(CoffeeMachine machine) {
