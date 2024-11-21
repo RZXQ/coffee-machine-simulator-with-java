@@ -2,7 +2,7 @@ package stage_6;
 
 import java.util.Scanner;
 
-public class Worker {
+public class Staff {
 
 	public static final String ADD_WATER_PROMPT = "Write how many ml of water you want to add:";
 
@@ -18,14 +18,14 @@ public class Worker {
 
 	private final CoffeeMachine machine;
 
-	public Worker(CoffeeMachine machine) {
+	public Staff(CoffeeMachine machine) {
 		this.machine = machine;
 	}
 
 	public void fillIngredients() {
-		this.machine.setWaterAmount(this.machine.getWaterAmount() + fill(ADD_WATER_PROMPT));
-		this.machine.setMilkAmount(this.machine.getMilkAmount() + fill(ADD_MILK_PROMPT));
-		this.machine.setBeansAmount(this.machine.getBeansAmount() + fill(ADD_BEANS_PROMPT));
+		this.machine.setWater(this.machine.getWater() + fill(ADD_WATER_PROMPT));
+		this.machine.setMilk(this.machine.getMilk() + fill(ADD_MILK_PROMPT));
+		this.machine.setBeans(this.machine.getBeans() + fill(ADD_BEANS_PROMPT));
 		this.machine.setCupsAmount(this.machine.getCupsAmount() + fill(ADD_CUPS_PROMPT));
 	}
 
@@ -36,8 +36,8 @@ public class Worker {
 	}
 
 	public void takeAllMoney() {
-		System.out.printf(TAKE_PROMPT, this.machine.getMoneyCollected());
-		this.machine.setMoneyCollected(0);
+		System.out.printf(TAKE_PROMPT, this.machine.getMoney());
+		this.machine.setMoney(0);
 	}
 
 }

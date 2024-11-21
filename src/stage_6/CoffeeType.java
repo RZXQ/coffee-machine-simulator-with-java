@@ -1,6 +1,6 @@
 package stage_6;
 
-public enum Coffee {
+public enum CoffeeType {
 
 	ESPRESSO(250, 0, 16, 4), LATTE(350, 75, 20, 7), CAPPUCCINO(200, 100, 12, 6),BACK(0,0,0,0);
 
@@ -12,7 +12,7 @@ public enum Coffee {
 
 	private final int cost;
 
-	Coffee(int water, int milk, int beans, int cost) {
+	CoffeeType(int water, int milk, int beans, int cost) {
 		this.water = water;
 		this.milk = milk;
 		this.beans = beans;

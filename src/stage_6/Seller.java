@@ -16,7 +16,7 @@ public class Seller {
 
 	private Customer customer;
 
-	private Worker worker;
+	private Staff staff;
 
 	private boolean isExit;
 
@@ -37,7 +37,7 @@ public class Seller {
 	}
 
 	private void setupWorker() {
-		this.worker = new Worker(this.coffeeMachine);
+		this.staff = new Staff(this.coffeeMachine);
 	}
 
 	private void cleanCoffeeMachine() {
@@ -72,30 +72,30 @@ public class Seller {
 				}
 				int choice = Integer.parseInt(choiceStr);
 				if (choice == 1) {
-					if (checkCoffeeMachineSupplies(Coffee.ESPRESSO)) {
+					if (checkCoffeeMachineSupplies(CoffeeType.ESPRESSO)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
-						coffeeMachine.makeOneCoffee(Coffee.ESPRESSO);
+						coffeeMachine.makeOneCoffee(CoffeeType.ESPRESSO);
 					}
 				}
 				else if (choice == 2) {
-					if (checkCoffeeMachineSupplies(Coffee.LATTE)) {
+					if (checkCoffeeMachineSupplies(CoffeeType.LATTE)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
-						coffeeMachine.makeOneCoffee(Coffee.LATTE);
+						coffeeMachine.makeOneCoffee(CoffeeType.LATTE);
 					}
 				}
 				else if (choice == 3) {
-					if (checkCoffeeMachineSupplies(Coffee.CAPPUCCINO)) {
+					if (checkCoffeeMachineSupplies(CoffeeType.CAPPUCCINO)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
-						coffeeMachine.makeOneCoffee(Coffee.CAPPUCCINO);
+						coffeeMachine.makeOneCoffee(CoffeeType.CAPPUCCINO);
 					}
 				}
 				break;
 			case FILL:
-				worker.fillIngredients();
+				staff.fillIngredients();
 				System.out.println();
 				break;
 			case TAKE:
-				worker.takeAllMoney();
+				staff.takeAllMoney();
 				System.out.println();
 				break;
 			case CLEAN:
@@ -112,16 +112,16 @@ public class Seller {
 		}
 	}
 
-	public boolean checkCoffeeMachineSupplies(Coffee coffee) {
-		if (this.coffeeMachine.getWaterAmount() < coffee.getWater()) {
+	public boolean checkCoffeeMachineSupplies(CoffeeType coffeeType) {
+		if (this.coffeeMachine.getWater() < coffeeType.getWater()) {
 			System.out.println("Sorry, not enough water!\n");
 			return false;
 		}
-		else if (this.coffeeMachine.getMilkAmount() < coffee.getMilk()) {
+		else if (this.coffeeMachine.getMilk() < coffeeType.getMilk()) {
 			System.out.println("Sorry, not enough milk!\n");
 			return false;
 		}
-		else if (this.coffeeMachine.getBeansAmount() < coffee.getBeans()) {
+		else if (this.coffeeMachine.getBeans() < coffeeType.getBeans()) {
 			System.out.println("Sorry, not enough beans!\n");
 			return false;
 		}

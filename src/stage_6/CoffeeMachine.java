@@ -4,15 +4,15 @@ public class CoffeeMachine {
 
 	public static int coffeeSold = 0;
 
-	private int maxCupsAvailable;
+	private int cups;
 
-	private int moneyCollected;
+	private int money;
 
-	private int waterAmount;
+	private int water;
 
-	private int milkAmount;
+	private int milk;
 
-	private int beansAmount;
+	private int beans;
 
 	public void setStatus(Status status) {
 		this.status = status;
@@ -26,52 +26,52 @@ public class CoffeeMachine {
 
 	private int disposableCups;
 
-	public CoffeeMachine(int waterAmount, int milkAmount, int beansAmount, int disposableCups, int moneyCollected) {
-		this.waterAmount = waterAmount;
-		this.milkAmount = milkAmount;
-		this.beansAmount = beansAmount;
+	public CoffeeMachine(int water, int milk, int beans, int disposableCups, int money) {
+		this.water = water;
+		this.milk = milk;
+		this.beans = beans;
 		this.disposableCups = disposableCups;
-		this.moneyCollected = moneyCollected;
+		this.money = money;
 	}
 
-	public int getMaxCupsAvailable() {
-		return maxCupsAvailable;
+	public int getCups() {
+		return cups;
 	}
 
-	public void setMaxCupsAvailable(int maxCupsAvailable) {
-		this.maxCupsAvailable = maxCupsAvailable;
+	public void setCups(int cups) {
+		this.cups = cups;
 	}
 
-	public int getMoneyCollected() {
-		return moneyCollected;
+	public int getMoney() {
+		return money;
 	}
 
-	public void setMoneyCollected(int moneyCollected) {
-		this.moneyCollected = moneyCollected;
+	public void setMoney(int money) {
+		this.money = money;
 	}
 
-	public int getWaterAmount() {
-		return waterAmount;
+	public int getWater() {
+		return water;
 	}
 
-	public void setWaterAmount(int waterAmount) {
-		this.waterAmount = waterAmount;
+	public void setWater(int water) {
+		this.water = water;
 	}
 
-	public int getMilkAmount() {
-		return milkAmount;
+	public int getMilk() {
+		return milk;
 	}
 
-	public void setMilkAmount(int milkAmount) {
-		this.milkAmount = milkAmount;
+	public void setMilk(int milk) {
+		this.milk = milk;
 	}
 
-	public int getBeansAmount() {
-		return beansAmount;
+	public int getBeans() {
+		return beans;
 	}
 
-	public void setBeansAmount(int beansAmount) {
-		this.beansAmount = beansAmount;
+	public void setBeans(int beans) {
+		this.beans = beans;
 	}
 
 	public int getCupsAmount() {
@@ -90,13 +90,13 @@ public class CoffeeMachine {
 		}
 		return false;
 	}
-	public void makeOneCoffee(Coffee coffee) {
+	public void makeOneCoffee(CoffeeType coffeeType) {
 		if (!needClean()) {
 		CoffeeMachine.coffeeSold++;
-		this.waterAmount -= coffee.getWater();
-		this.milkAmount -= coffee.getMilk();
-		this.beansAmount -= coffee.getBeans();
-		this.moneyCollected += coffee.getCost();
+		this.water -= coffeeType.getWater();
+		this.milk -= coffeeType.getMilk();
+		this.beans -= coffeeType.getBeans();
+		this.money += coffeeType.getCost();
 		this.disposableCups -= 1;
 		}
 
@@ -107,7 +107,7 @@ public class CoffeeMachine {
 		return String.format(
 				"The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n" + "%d g of coffee beans\n"
 						+ "%d disposable cups\n" + "$%d of money\n",
-				waterAmount, milkAmount, beansAmount, disposableCups, moneyCollected);
+				water, milk, beans, disposableCups, money);
 	}
 
 	// public boolean checkSupplies(Coffee coffee) {
@@ -129,7 +129,7 @@ public class CoffeeMachine {
 	//
 
 	public int getMaxCupAvailable() {
-		return this.maxCupsAvailable;
+		return this.cups;
 	}
 
 	public enum status {
