@@ -45,7 +45,7 @@ public class Seller {
 
 	private void cleanCoffeeMachine() {
 		this.coffeeMachine.setStatus(Status.ON);
-		CoffeeMachine.coffeeSold = 0;
+		CoffeeMachine.cupsMadeSinceClean = 0;
 		System.out.println("I have been cleaned!");
 	}
 

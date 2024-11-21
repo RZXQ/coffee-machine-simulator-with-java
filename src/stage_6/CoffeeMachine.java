@@ -2,7 +2,7 @@ package stage_6;
 
 public class CoffeeMachine {
 
-	public static int coffeeSold = 0;
+	public static int cupsMadeSinceClean = 0;
 
 	private int cups;
 
@@ -77,7 +77,7 @@ public class CoffeeMachine {
 	}
 
 	public boolean needClean() {
-		if (CoffeeMachine.coffeeSold >= 10) {
+		if (CoffeeMachine.cupsMadeSinceClean >= 10) {
 			this.status = Status.CLEANING;
 			System.out.println("I need cleaning!");
 			return true;
@@ -87,7 +87,7 @@ public class CoffeeMachine {
 
 	public void makeOneCoffee(CoffeeType coffeeType) {
 		if (!needClean()) {
-			CoffeeMachine.coffeeSold++;
+			CoffeeMachine.cupsMadeSinceClean++;
 			this.water -= coffeeType.getWater();
 			this.milk -= coffeeType.getMilk();
 			this.beans -= coffeeType.getBeans();
