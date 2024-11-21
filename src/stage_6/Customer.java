@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Customer {
 
-	public void buyCoffee(Staff staff, CoffeeMachine machine, Scanner SCANNER) {
+	public void buyCoffee(Staff staff, CoffeeMachine machine, Scanner scanner) {
 		if (machine.needClean()) {
 			return;
 		}
 
 		System.out.println(Staff.COFFEE_TYPE_PROMPT);
-		String choiceStr = SCANNER.nextLine();
+		String choiceStr = scanner.nextLine();
 		if ("back".equalsIgnoreCase(choiceStr)) {
 			return;
 		}
