@@ -24,7 +24,7 @@ public class Staff {
 		machine.setWater(machine.getWater() + fill(ADD_WATER_PROMPT));
 		machine.setMilk(machine.getMilk() + fill(ADD_MILK_PROMPT));
 		machine.setBeans(machine.getBeans() + fill(ADD_BEANS_PROMPT));
-		machine.setCupsAmount(machine.getCupsAmount() + fill(ADD_CUPS_PROMPT));
+		machine.setCups(machine.getCups() + fill(ADD_CUPS_PROMPT));
 		System.out.println();
 	}
 
@@ -57,7 +57,7 @@ public class Staff {
 			System.out.println("Sorry, not enough beans!\n");
 			return false;
 		}
-		else if (machine.getCupsAmount() < 1) {
+		else if (machine.getCups() < 1) {
 			System.out.println("Sorry, not enough beans!\n");
 			return false;
 		}

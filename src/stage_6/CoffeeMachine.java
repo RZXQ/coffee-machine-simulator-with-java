@@ -60,12 +60,12 @@ public class CoffeeMachine {
 		this.beans = beans;
 	}
 
-	public int getCupsAmount() {
+	public int getCups() {
 		return cups;
 	}
 
-	public void setCupsAmount(int disposableCups) {
-		this.cups = disposableCups;
+	public void setCups(int cups) {
+		this.cups = cups;
 	}
 
 	public boolean requireClean() {
