@@ -16,7 +16,6 @@ public class Staff {
 
 	private static final Scanner SCANNER = new Scanner(System.in);
 
-
 	public void fillIngredients(CoffeeMachine machine) {
 		machine.setWater(machine.getWater() + fill(ADD_WATER_PROMPT));
 		machine.setMilk(machine.getMilk() + fill(ADD_MILK_PROMPT));
@@ -33,10 +32,31 @@ public class Staff {
 	public void cleanMachine(CoffeeMachine machine) {
 		machine.clean();
 	}
+
 	public void takeMoney(CoffeeMachine machine) {
 		System.out.printf(TAKE_PROMPT, machine.getMoney());
 		machine.setMoney(0);
 		System.out.println();
+	}
+
+	public boolean checkMachineSupplies(CoffeeMachine machine, CoffeeType type) {
+		if (machine.getWater() < type.getWater()) {
+			System.out.println("Sorry, not enough water!\n");
+			return false;
+		}
+		else if (machine.getMilk() < type.getMilk()) {
+			System.out.println("Sorry, not enough milk!\n");
+			return false;
+		}
+		else if (machine.getBeans() < type.getBeans()) {
+			System.out.println("Sorry, not enough beans!\n");
+			return false;
+		}
+		else if (machine.getCupsAmount() < 1) {
+			System.out.println("Sorry, not enough beans!\n");
+			return false;
+		}
+		return true;
 	}
 
 }

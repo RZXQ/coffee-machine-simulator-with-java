@@ -70,19 +70,19 @@ public class Main {
 				}
 				int choice = Integer.parseInt(choiceStr);
 				if (choice == 1) {
-					if (checkCoffeeMachineSupplies(CoffeeType.ESPRESSO)) {
+					if (staff.checkMachineSupplies(machine,CoffeeType.ESPRESSO)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
 						machine.makeOneCoffee(CoffeeType.ESPRESSO);
 					}
 				}
 				else if (choice == 2) {
-					if (checkCoffeeMachineSupplies(CoffeeType.LATTE)) {
+					if (staff.checkMachineSupplies(machine,CoffeeType.LATTE)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
 						machine.makeOneCoffee(CoffeeType.LATTE);
 					}
 				}
 				else if (choice == 3) {
-					if (checkCoffeeMachineSupplies(CoffeeType.CAPPUCCINO)) {
+					if (staff.checkMachineSupplies(machine, CoffeeType.CAPPUCCINO)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
 						machine.makeOneCoffee(CoffeeType.CAPPUCCINO);
 					}
@@ -109,25 +109,7 @@ public class Main {
 		}
 	}
 
-	public boolean checkCoffeeMachineSupplies(CoffeeType coffeeType) {
-		if (this.machine.getWater() < coffeeType.getWater()) {
-			System.out.println("Sorry, not enough water!\n");
-			return false;
-		}
-		else if (this.machine.getMilk() < coffeeType.getMilk()) {
-			System.out.println("Sorry, not enough milk!\n");
-			return false;
-		}
-		else if (this.machine.getBeans() < coffeeType.getBeans()) {
-			System.out.println("Sorry, not enough beans!\n");
-			return false;
-		}
-		else if (this.machine.getCupsAmount() < 1) {
-			System.out.println("Sorry, not enough beans!\n");
-			return false;
-		}
-		return true;
-	}
+
 
 	private void setupCoffeeMachine() {
 		this.machine = new CoffeeMachine(400, 540, 120, 9, 550);
