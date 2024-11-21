@@ -25,6 +25,7 @@ public class Staff {
 		machine.setMilk(machine.getMilk() + fill(ADD_MILK_PROMPT));
 		machine.setBeans(machine.getBeans() + fill(ADD_BEANS_PROMPT));
 		machine.setCupsAmount(machine.getCupsAmount() + fill(ADD_CUPS_PROMPT));
+		System.out.println();
 	}
 
 	private int fill(String prompt) {

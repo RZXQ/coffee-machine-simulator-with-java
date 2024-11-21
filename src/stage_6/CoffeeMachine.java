@@ -81,8 +81,10 @@ public class CoffeeMachine {
 		this.disposableCups = disposableCups;
 	}
 
+	private static final int CLEAN_THRESHOLD= 10;
+
 	public boolean needClean() {
-		if (CoffeeMachine.cupsMadeSinceClean >= 10) {
+		if (CoffeeMachine.cupsMadeSinceClean >= CLEAN_THRESHOLD) {
 			this.status = Status.CLEANING;
 			System.out.println(CLEAN_REQUIRED_PROMPT);
 			return true;

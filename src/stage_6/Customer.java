@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Customer {
 
 	public void buyCoffee(Staff staff, CoffeeMachine machine, Scanner SCANNER) {
+		if (machine.needClean()) {
+			return;
+		}
+
 		System.out.println(Staff.COFFEE_TYPE_PROMPT);
 		String choiceStr = SCANNER.nextLine();
 		if ("back".equalsIgnoreCase(choiceStr)) {
