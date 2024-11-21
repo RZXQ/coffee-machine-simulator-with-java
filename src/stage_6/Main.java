@@ -12,8 +12,6 @@ public class Main {
 
 	private static final String ENOUGH_SUPPLY_PROMPT = "I have enough resources, making you a coffee!\n";
 
-	private CoffeeMachine machine;
-
 	private boolean isExit;
 
 	public static void main(String[] args) {
@@ -23,22 +21,21 @@ public class Main {
 
 	public void makeCoffee() {
 
-		setupCoffeeMachine();
+		CoffeeMachine machine = new CoffeeMachine(400, 540, 120, 9, 550);
 
-		Staff staff =new Staff();
+		Staff staff = new Staff();
 
-		performActions(staff);
+		performActions(staff,machine);
 
 	}
 
-	private void performActions(Staff staff) {
+	private void performActions(Staff staff, CoffeeMachine machine) {
 		while (!isExit) {
-			performSingleAction(staff);
+			performSingleAction(staff, machine);
 		}
 	}
 
-
-	private void performSingleAction(Staff staff) {
+	private void performSingleAction(Staff staff, CoffeeMachine machine) {
 		System.out.println(ACTION_PROMPT);
 		Action action;
 
@@ -54,7 +51,7 @@ public class Main {
 
 		switch (action) {
 			case BUY:
-				if (this.machine.needClean()) {
+				if (machine.needClean()) {
 					break;
 				}
 
@@ -65,13 +62,13 @@ public class Main {
 				}
 				int choice = Integer.parseInt(choiceStr);
 				if (choice == 1) {
-					if (staff.checkMachineSupplies(machine,CoffeeType.ESPRESSO)) {
+					if (staff.checkMachineSupplies(machine, CoffeeType.ESPRESSO)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
 						machine.makeOneCoffee(CoffeeType.ESPRESSO);
 					}
 				}
 				else if (choice == 2) {
-					if (staff.checkMachineSupplies(machine,CoffeeType.LATTE)) {
+					if (staff.checkMachineSupplies(machine, CoffeeType.LATTE)) {
 						System.out.println(ENOUGH_SUPPLY_PROMPT);
 						machine.makeOneCoffee(CoffeeType.LATTE);
 					}
@@ -104,10 +101,7 @@ public class Main {
 		}
 	}
 
-
-
 	private void setupCoffeeMachine() {
-		this.machine = new CoffeeMachine(400, 540, 120, 9, 550);
 	}
 
 	public enum Action {
