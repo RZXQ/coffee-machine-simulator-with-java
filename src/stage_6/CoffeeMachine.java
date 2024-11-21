@@ -92,7 +92,7 @@ public class CoffeeMachine {
 		return false;
 	}
 
-	public void makeOneCoffee(CoffeeType coffeeType) {
+	public void makeCoffee(CoffeeType coffeeType) {
 		if (!needClean()) {
 			CoffeeMachine.cupsMadeSinceClean++;
 			this.water -= coffeeType.getWater();

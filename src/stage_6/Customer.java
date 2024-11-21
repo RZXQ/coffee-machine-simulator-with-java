@@ -28,7 +28,7 @@ public class Customer {
 		}
 		if (staff.checkMachineSupplies(machine, type)) {
 			System.out.println(Staff.ENOUGH_SUPPLY_PROMPT);
-			machine.makeOneCoffee(type);
+			machine.makeCoffee(type);
 		}
 
 	}
