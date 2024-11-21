@@ -14,8 +14,6 @@ public class Seller {
 
 	private CoffeeMachine coffeeMachine;
 
-	private Customer customer;
-
 	private Staff staff;
 
 	private boolean isExit;
@@ -42,15 +40,16 @@ public class Seller {
 
 	private void cleanCoffeeMachine() {
 		this.coffeeMachine.setStatus(Status.ON);
-		CoffeeMachine.coffeeSold=0;
+		CoffeeMachine.coffeeSold = 0;
 		System.out.println("I have been cleaned!");
 	}
 
 	private void performSingleAction() {
 		System.out.println(ACTION_PROMPT);
-		Action userAction;
+		Action action;
+
 		try {
-			userAction = Action.valueOf(SCANNER.nextLine().toUpperCase());
+			action = Action.valueOf(SCANNER.nextLine().toUpperCase());
 		}
 		catch (IllegalArgumentException e) {
 			System.out.println("Invalid action. Please try again.");
@@ -59,7 +58,7 @@ public class Seller {
 
 		System.out.println();
 
-		switch (userAction) {
+		switch (action) {
 			case BUY:
 				if (this.coffeeMachine.needClean()) {
 					break;
@@ -137,40 +136,7 @@ public class Seller {
 	}
 
 	private void setupCoffeeMachine() {
-		// this.coffeeMachine = getCoffeeMachine();
-		// this.coffeeMachine.updateMaxCupsAvailable();
 		this.coffeeMachine = new CoffeeMachine(400, 540, 120, 9, 550);
-	}
-
-	private void setupCustomer() {
-		this.customer = new Customer();
-		this.customer.setCupsOfCoffeeNeeded();
-	}
-
-	public int readAmount(String prompt) {
-		System.out.println(prompt);
-		return Integer.parseInt(SCANNER.nextLine());
-	}
-
-	// public CoffeeMachine getCoffeeMachine() {
-	// return new CoffeeMachine(readAmount(INITIAL_WATER_PROMPT),
-	// readAmount(INITIAL_MILK_PROMPT),
-	// readAmount(INITIAL_COFFEE_BEANS_PROMPT));
-	// }
-
-	private void provideFeedback() {
-		int difference = this.coffeeMachine.getMaxCupAvailable() - this.customer.getCupsOfCoffeeNeeded();
-
-		if (difference > 0) {
-			System.out.printf("Yes, I can make that amount of coffee (and even %d more than that)\n", difference);
-		}
-		else if (difference == 0) {
-			System.out.println("Yes, I can make that amount of coffee");
-		}
-		else {
-			System.out.printf("No, I can make only %d cups of coffee\n", this.coffeeMachine.getMaxCupAvailable());
-
-		}
 	}
 
 	public enum Action {
