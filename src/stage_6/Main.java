@@ -28,17 +28,7 @@ public class Main {
 	}
 
 	private void performSingleAction(CoffeeMachine machine, Staff staff, Customer customer) {
-		System.out.println(ACTION_PROMPT);
-		Action action;
-
-		try {
-			action = Action.valueOf(SCANNER.nextLine().toUpperCase());
-		}
-		catch (IllegalArgumentException e) {
-			System.out.println("Invalid action. Please try again.");
-			return;
-		}
-
+		Action action = Action.getAction(SCANNER);
 		System.out.println();
 
 		switch (action) {
@@ -56,6 +46,7 @@ public class Main {
 			case CLEAN -> staff.cleanMachine(machine);
 			case REMAINING -> machine.showRemaining();
 			case EXIT -> this.isExit = true;
+			case null -> System.out.println("wrong input");
 			default -> {
 			}
 		}
@@ -63,7 +54,20 @@ public class Main {
 
 	public enum Action {
 
-		BUY, FILL, TAKE, CLEAN, REMAINING, EXIT
+		BUY, FILL, TAKE, CLEAN, REMAINING, EXIT;
+
+		public static Action getAction(Scanner scanner) {
+			System.out.println(ACTION_PROMPT);
+			Action action;
+			try {
+				action = Action.valueOf(SCANNER.nextLine().toUpperCase());
+			}
+			catch (IllegalArgumentException e) {
+				System.out.println("Invalid action. Please try again.");
+				return null;
+			}
+			return action;
+		}
 
 	}
 
