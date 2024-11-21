@@ -22,12 +22,12 @@ public class Main {
 		Customer customer = new Customer();
 
 		while (!isExit) {
-			performSingleAction(staff, machine, customer);
+			performSingleAction(machine, staff, customer);
 		}
 
 	}
 
-	private void performSingleAction(Staff staff, CoffeeMachine machine, Customer customer) {
+	private void performSingleAction(CoffeeMachine machine, Staff staff, Customer customer) {
 		System.out.println(ACTION_PROMPT);
 		Action action;
 
