@@ -14,8 +14,6 @@ public class Main {
 
 	private CoffeeMachine machine;
 
-	private Staff staff;
-
 	private boolean isExit;
 
 	public static void main(String[] args) {
@@ -27,23 +25,20 @@ public class Main {
 
 		setupCoffeeMachine();
 
-		setupWorker();
+		Staff staff =new Staff();
 
-		performActions();
+		performActions(staff);
 
 	}
 
-	private void performActions() {
+	private void performActions(Staff staff) {
 		while (!isExit) {
-			performSingleAction();
+			performSingleAction(staff);
 		}
 	}
 
-	private void setupWorker() {
-		this.staff = new Staff();
-	}
 
-	private void performSingleAction() {
+	private void performSingleAction(Staff staff) {
 		System.out.println(ACTION_PROMPT);
 		Action action;
 
