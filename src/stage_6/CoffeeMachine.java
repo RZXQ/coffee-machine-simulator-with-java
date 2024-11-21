@@ -5,13 +5,21 @@ public class CoffeeMachine {
 	private static final String CLEAN_COMPLETE_PROMPT = "I have been cleaned!";
 
 	private static final String CLEAN_REQUIRED_PROMPT = "I need cleaning!";
+
 	private static final int CLEAN_THRESHOLD = 10;
+
 	public static int cupsMadeSinceClean = 0;
+
 	private int cups;
+
 	private int money;
+
 	private int water;
+
 	private int milk;
+
 	private int beans;
+
 	private int disposableCups;
 
 	public CoffeeMachine(int water, int milk, int beans, int disposableCups, int money) {
