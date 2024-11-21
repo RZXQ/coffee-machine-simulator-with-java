@@ -48,33 +48,25 @@ public class Main {
 
 		System.out.println();
 
-		switch (action) {
-			case BUY:
-				if (machine.needClean()) {
-					break;
-				}
-				Customer customer = new Customer();
-				customer.buyCoffee(staff, machine, SCANNER);
-				break;
-			case FILL:
-				staff.fillIngredients(machine);
-				System.out.println();
-				break;
-			case TAKE:
-				staff.takeMoney(machine);
-				break;
-			case CLEAN:
-				staff.cleanMachine(machine);
-				break;
-			case REMAINING:
-				machine.showRemaining();
-				break;
-			case EXIT:
-				this.isExit = true;
-				break;
-			default:
-				break;
-		}
+        switch (action) {
+            case BUY -> {
+                if (machine.needClean()) {
+                    break;
+                }
+                Customer customer = new Customer();
+                customer.buyCoffee(staff, machine, SCANNER);
+            }
+            case FILL -> {
+                staff.fillIngredients(machine);
+                System.out.println();
+            }
+            case TAKE -> staff.takeMoney(machine);
+            case CLEAN -> staff.cleanMachine(machine);
+            case REMAINING -> machine.showRemaining();
+            case EXIT -> this.isExit = true;
+            default -> {
+            }
+        }
 	}
 
 	public enum Action {
