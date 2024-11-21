@@ -6,14 +6,9 @@ public class Main {
 
 	private static final Scanner SCANNER = new Scanner(System.in);
 
-	private boolean isExit;
+	private static boolean isExit;
 
 	public static void main(String[] args) {
-		Main main = new Main();
-		main.run();
-	}
-
-	public void run() {
 		CoffeeMachine machine = new CoffeeMachine(400, 540, 120, 9, 550);
 		Staff staff = new Staff();
 		Customer customer = new Customer();
@@ -21,10 +16,9 @@ public class Main {
 		while (!isExit) {
 			run(machine, staff, customer);
 		}
-
 	}
 
-	private void run(CoffeeMachine machine, Staff staff, Customer customer) {
+	private static void run(CoffeeMachine machine, Staff staff, Customer customer) {
 		Action action = Action.getAction(SCANNER);
 
 		switch (action) {
@@ -33,7 +27,7 @@ public class Main {
 			case TAKE -> staff.takeMoney(machine);
 			case CLEAN -> staff.cleanMachine(machine);
 			case REMAINING -> machine.showRemaining();
-			case EXIT -> this.isExit = true;
+			case EXIT -> isExit = true;
 			case null -> System.out.println("wrong input");
 			default -> {
 			}
