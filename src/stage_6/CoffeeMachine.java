@@ -8,9 +8,7 @@ public class CoffeeMachine {
 
 	private static final int CLEAN_THRESHOLD = 10;
 
-	public static int cupsMadeSinceClean = 0;
-
-	private int cups;
+	private static int cupsMadeSinceClean = 0;
 
 	private int money;
 
@@ -20,22 +18,14 @@ public class CoffeeMachine {
 
 	private int beans;
 
-	private int disposableCups;
+	private int cups;
 
-	public CoffeeMachine(int water, int milk, int beans, int disposableCups, int money) {
+	public CoffeeMachine(int water, int milk, int beans, int cups, int money) {
 		this.water = water;
 		this.milk = milk;
 		this.beans = beans;
-		this.disposableCups = disposableCups;
-		this.money = money;
-	}
-
-	public int getCups() {
-		return cups;
-	}
-
-	public void setCups(int cups) {
 		this.cups = cups;
+		this.money = money;
 	}
 
 	public int getMoney() {
@@ -71,11 +61,11 @@ public class CoffeeMachine {
 	}
 
 	public int getCupsAmount() {
-		return disposableCups;
+		return cups;
 	}
 
 	public void setCupsAmount(int disposableCups) {
-		this.disposableCups = disposableCups;
+		this.cups = disposableCups;
 	}
 
 	public boolean requireClean() {
@@ -95,13 +85,13 @@ public class CoffeeMachine {
 		this.milk -= coffeeType.getMilk();
 		this.beans -= coffeeType.getBeans();
 		this.money += coffeeType.getCost();
-		this.disposableCups -= 1;
+		this.cups -= 1;
 	}
 
 	public void showRemaining() {
 		System.out.printf("The coffee machine has:\n" + "%d ml of water\n" + "%d ml of milk\n"
-				+ "%d g of coffee beans\n" + "%d disposable cups\n" + "$%d of money\n%n", water, milk, beans,
-				disposableCups, money);
+				+ "%d g of coffee beans\n" + "%d disposable cups\n" + "$%d of money\n%n", water, milk, beans, cups,
+				money);
 	}
 
 	public void executeSelfClean() {
